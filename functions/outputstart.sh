@@ -39,6 +39,5 @@ start () {
         * )
             start ;;
       esac
-fi
 start
 }
