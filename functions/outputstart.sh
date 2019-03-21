@@ -14,7 +14,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 NOTE: When finished making changes; PG Clone must redeploy in order for
-the changes to take affect in (Union) MergerFS! 
+the changes to take affect in (Union) MergerFS!
 
 [1] HD or a MountPoint:  Add
 [2] HD or a MountPoint:  Remove
@@ -36,7 +36,6 @@ start () {
             exit ;;
         Z )
             exit ;;
-
         * )
             start ;;
       esac
