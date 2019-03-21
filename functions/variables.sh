@@ -8,6 +8,11 @@
 rolevars () {
   mkdir -p /var/plexguide/
 
+  variable () {
+    file="$1"
+    if [ ! -e "$file" ]; then echo "$2" > $1; fi
+  }
+
   variable /var/plexguide/vfs_rcsl "5"
   vfs_rcsl=$(cat /var/plexguide/vfs_rcsl)
 
