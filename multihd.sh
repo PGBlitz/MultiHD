@@ -11,5 +11,5 @@ source /opt/multihd/functions/addpoint.sh
 ################################################################################
 rolevars
 
-# start
-start
+# multihdstart
+multihdstart
