@@ -42,7 +42,7 @@ tee <<-EOF
 EOF
 num=0
 while read p; do
-  num++
+  ((num++))
   echo "[$num] $p"
   echo "[$num] $p" >> /var/plexguide/.tmp.removepointmenu
 done </var/plexguide/multihd.paths
