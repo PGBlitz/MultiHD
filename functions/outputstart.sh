@@ -13,9 +13,9 @@ tee <<-EOF
 💪 Welcome to MultiHD ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[1] Add    ~ HD or MountPoint
-[2] Remove ~ HD or MountPoint
-[3] View   ~ Established List
+[1] Add     (HD or MountPoint)
+[2] Remove  (HD or MountPoint)
+[3] View    (Current MultiHD List)
 [Z] Exit
 
 NOTE: When finished making changes; PG Clone must redeploy in order for
