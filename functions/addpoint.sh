@@ -25,16 +25,16 @@ Quitting? Type >>> exit
 EOF
 read -rp '↘️  Input Selection | Press [ENTER]: ' $addpoint < /dev/tty
 
-if [[ "$addpoint" == "Exit" || "$addpoint" == "exit" || "$addpoint" == "EXIT" ]]; then startaddpoint; fi
-if [[ "$addpoint" == "" ]]; then startaddpoint; fi
+if [[ "$addpoint" == "Exit" || "$addpoint" == "exit" || "$addpoint" == "EXIT" ]]; then multihdstart; fi
+if [[ "$addpoint" == "" ]]; then addpoint; fi
 
 multihdstart
 }
 
-startaddpoint () {
+addpoint () {
 
 
 
 
-startaddpoint
+addpoint
 }
