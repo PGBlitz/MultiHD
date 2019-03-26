@@ -33,8 +33,39 @@ addpointcheck
 
 addpointcheck () {
 
+  # adds slashes if missing
+  if [[ $(echo $addpath | cut -c1) != "/" ]]; then addpath="/$addpath"; fi
+  if [[ $(echo $addpath | tail -c 2) != "/" ]]; then addpath="$addpath/"; fi
 
+tee <<-EOF
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💪 Processing Path: $addpath
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EOF
+
+checkcheck1=$(ls -la "$addpath" 2>&1)
+checkcheck2=$(echo $checkcheck1 | grep "cannot access")
+
+if [[ "$checkcheck2" != "" ]]; then
+
+tee <<-EOF
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💪 ERROR NOTICE ~ http://multihd.pgblitz.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PATH: $addpath
+
+NOTE: The following path above does not exist and unable to verify!
+Type "ls -la $addpath"
+
+This command may help determine what the problem is!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EOF
+read -rp '↘️  Acknowledge Info | Press [ENTER]: ' typed < /dev/tty
+addpoint; fi
 
 addpoint
 }
