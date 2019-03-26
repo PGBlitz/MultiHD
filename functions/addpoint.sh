@@ -47,8 +47,8 @@ EOF
 checkcheck1=$(ls -la "$addpath" 2>&1)
 checkcheck2=$(echo $checkcheck1 | grep "cannot access")
 
+# Checks to Make Sure the Path Is Valid
 if [[ "$checkcheck2" != "" ]]; then
-
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -66,12 +66,27 @@ EOF
 read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
 addpoint; fi
 
-if [ -e "/var/plexguide/multihd.paths" ]; then
-  echo "[NOT SET]" > /var/plexguide/project.final
+# Checks to Make Sure BoneHead doesn't store the same path twice
+checkcheck3=$(cat /var/plexguide/multihd.paths | grep "$addpath")
+if [[ "$checkcheck3" != "" ]]; then
+tee <<-EOF
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💪 ERROR NOTICE ~ http://multihd.pgblitz.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PATH: $addpath
+
+NOTE: This path ALREADY EXISTS in the MultiHD Setup! There is nothing else
+to do! EXITING!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EOF
+read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
+multihdstart
 fi
 
-
-
+# Congrats! The Path Exists and is now stored!
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -18,9 +18,11 @@ rolevars () {
     if [ ! -e "$file" ]; then touch "$1"; fi
   }
 
+  # set variables if they do not exist
   variable /var/plexguide/vfs_rcsl "5"
   vfs_rcsl=$(cat /var/plexguide/vfs_rcsl)
 
+  # touch paths only if not existant
   variablet /var/plexguide/multihd.paths
 
 }
