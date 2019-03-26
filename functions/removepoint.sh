@@ -58,12 +58,12 @@ read -rp '↘️  Type Number | Press [ENTER]: ' typed < /dev/tty
 if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
 if [[ "$typed" == "" ]]; then inputphase; fi
 
-if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then removepoint; fi
+if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then removepointfinal; fi
 
 inputphase
 }
 
-removepoint () {
+removepointfinal () {
 
 cat /var/plexguide/.tmp.removepointmenu | grep "$typed" > /var/plexguide/.tmp.removepointmenu.select
 removestore=$(cat /var/plexguide/.tmp.removepointmenu.select | awk '{print $2}' )
