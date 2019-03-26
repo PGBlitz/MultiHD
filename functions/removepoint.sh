@@ -48,6 +48,7 @@ while read p; do
 done </var/plexguide/multihd.paths
 
 tee <<-EOF
+
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
