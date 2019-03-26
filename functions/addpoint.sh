@@ -66,5 +66,27 @@ EOF
 read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
 addpoint; fi
 
-addpoint
+if [ -e "/var/plexguide/multihd.paths" ]; then
+  echo "[NOT SET]" > /var/plexguide/project.final
+fi
+
+
+
+tee <<-EOF
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💪 SUCCESS NOTICE ~ http://multihd.pgblitz.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PATH: $addpath
+
+NOTE: The following path does exist! We are storing the PATH for continued
+use! That's it unless more paths must be added!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EOF
+
+echo $addpath >> /var/plexguide/multihd.paths
+read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
+
+multihdstart
 }

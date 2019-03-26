@@ -13,7 +13,14 @@ rolevars () {
     if [ ! -e "$file" ]; then echo "$2" > $1; fi
   }
 
+  variablet () {
+    file="$1"
+    if [ ! -e "$file" ]; then touch "$1"; fi
+  }
+
   variable /var/plexguide/vfs_rcsl "5"
   vfs_rcsl=$(cat /var/plexguide/vfs_rcsl)
+
+  variablet /var/plexguide/multihd.paths
 
 }
