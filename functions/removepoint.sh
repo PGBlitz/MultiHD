@@ -28,7 +28,7 @@ multihdstart; fi
 inputphase
 }
 
-inputphase ()
+inputphase () {
 
 rm -rf /var/plexguide/.tmp.removepointmenu 1>/dev/null 2>&1
 
