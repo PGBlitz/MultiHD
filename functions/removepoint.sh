@@ -68,6 +68,7 @@ removepointfinal () {
 cat /var/plexguide/.tmp.removepointmenu | grep "$typed" > /var/plexguide/.tmp.removepointmenu.select
 removestore=$(cat /var/plexguide/.tmp.removepointmenu.select | awk '{print $2}' )
 
+rm -rf /var/plexguide/.tmp.removebuild 1>/dev/null 2>&1
 num=0
 while read p; do
   if [[ "$removestore" != "$p" ]]; then echo "$p" >> /var/plexguide/.tmp.removebuild; fi
