@@ -23,10 +23,10 @@ the changes to take affect in (Union) MergerFS!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 read -rp '↘️  Input Selection | Press [ENTER]: ' typed < /dev/tty
-multihdstart
+multihdstartinput
 }
 
-multihdstart () {
+multihdstartinput () {
   case $typed in
         1 )
             addpoint ;;
