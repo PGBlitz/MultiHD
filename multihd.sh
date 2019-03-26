@@ -12,4 +12,4 @@ source /opt/multihd/functions/addpoint.sh
 rolevars
 
 # multihdstart
-#multihdstart
+multihdstart
