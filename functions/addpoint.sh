@@ -101,8 +101,10 @@ tee <<-EOF
 
 PATH: $addpath
 
-NOTE: The path exists! The path has now been saved to our
-MultiHD list!
+NOTE1: The path exists! The path has now been saved to our MultiHD list!
+
+NOTE2: To take full affect PG Move/PG Blitz must be deployed/redeployed
+through PG Clone!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF

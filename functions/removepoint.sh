@@ -86,7 +86,10 @@ tee <<-EOF
 
 PATH: $removestore
 
-NOTE: The following path has been removed from the MultiHD List!
+NOTE1: The following path has been removed from the MultiHD List!
+
+NOTE2: To take full affect PG Move/PG Blitz must be deployed/redeployed
+through PG Clone!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
