@@ -60,7 +60,8 @@ PATH: $addpath
 NOTE: We are unable to verify that the following path above exists!
 Type "ls -la $addpath"
 
-This command may help determine what the problem is!
+Utilizing the above command may help determine what the problem is!
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
