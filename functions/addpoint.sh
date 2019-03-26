@@ -17,10 +17,12 @@ NOTE1: This point must EXIST! PGBlitz does not format drives, nor mount
 the secondary HDs for the user. Visit the URL to learn about the basics!
 Feel free to add/change the wiki in ordeer to help us all!
 
-NOTE2: Format Example
+NOTE2: Formatting Examples
 
 /hd2/mystuff
 /mystash/media
+/nas/mrdoobs/hiddenvideos
+/timekills.org/storage/media
 /secondhd/user/pgblitz/media
 
 Quitting? Type >>> exit
