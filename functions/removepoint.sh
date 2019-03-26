@@ -46,17 +46,18 @@ while read p; do
   echo "[$num] $p"
   echo "[$num] $p" >> /var/plexguide/.tmp.removepointmenu
 done </var/plexguide/multihd.paths
-
 cat
 
 tee <<-EOF
-
+Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 read -rp '↘️  Type Number of HD/MountPoint to Remove | Press [ENTER]: ' typed < /dev/tty
 
-if [[ "$addpath" == "Exit" || "$addpath" == "exit" || "$addpath" == "EXIT" ]]; then multihdstart; fi
-if [[ "$addpath" == "" ]]; then addpoint; fi
+if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
+if [[ "$typed" == "" ]]; then inputphase; fi
+
+if [[ "$typed" -lt "1" && "$typed" -gt "$num" ]]; then inputphase; fi
 
 addpointcheck
 }
