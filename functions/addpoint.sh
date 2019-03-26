@@ -40,7 +40,7 @@ addpointcheck () {
 
   # adds slashes if missing
   if [[ $(echo $addpath | cut -c1) != "/" ]]; then addpath="/$addpath"; fi
-  if [[ $(echo $addpath | tail -c 2) != "/" ]]; then addpath="$addpath/"; fi
+  if [[ $(echo $addpath | tail -c 2) == "/" ]]; then addpath="${addpath::-1}"; fi
 
 tee <<-EOF
 
