@@ -38,7 +38,6 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Remove an HD/MountPoint ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 NOTE: Type a number selection in order to remove one of the HD/Mountpoints
 
 EOF
@@ -59,9 +58,9 @@ read -rp '↘️  Type Number | Press [ENTER]: ' typed < /dev/tty
 if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
 if [[ "$typed" == "" ]]; then inputphase; fi
 
-if [[ "$typed" -lt "1" && "$typed" -gt "$num" ]]; then inputphase; fi
+if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then addpointcheck; fi
 
-addpointcheck
+inputphase
 }
 
 addpointcheck () {
