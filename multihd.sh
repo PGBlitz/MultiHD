@@ -8,6 +8,7 @@
 source /opt/multihd/functions/variables.sh
 source /opt/multihd/functions/outputstart.sh
 source /opt/multihd/functions/addpoint.sh
+source /opt/multihd/functions/removepoint.sh
 ################################################################################
 rolevars
 
