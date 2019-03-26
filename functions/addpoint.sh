@@ -13,12 +13,15 @@ tee <<-EOF
 💪 Add HD or MountPoint ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-NOTE1: This point must exist. PGBlitz does not format drives or mount the
-secondary HDs for the user. Visit the URL on somebasics to accomplish
-this. Feel free to add/change the wiki to help us all!
+NOTE1: This point must EXIST! PGBlitz does not format drives, nor mount
+the secondary HDs for the user. Visit the URL to learn about the basics!
+Feel free to add/change the wiki in ordeer to help us all!
 
-NOTE2: Format Example: /hd2/mystuff | /mystash/media | /secondhd/media
-These are just examples!
+NOTE2: Format Example
+
+/hd2/mystuff
+/mystash/media
+/secondhd/user/pgblitz/media
 
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
