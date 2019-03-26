@@ -36,7 +36,7 @@ rm -rf /var/plexguide/.tmp.removepointmenu 1>/dev/null 2>&1
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💪 Remove an HD or MountPoint ~ http://multihd.pgblitz.com
+💪 Remove an HD/MountPoint ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
@@ -49,10 +49,13 @@ done </var/plexguide/multihd.paths
 
 tee <<-EOF
 
+NOTE: Type a number selection in order to remove one of the following
+HD/Mountpoints!
+
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Type Number of HD/MountPoint to Remove | Press [ENTER]: ' typed < /dev/tty
+read -rp '↘️  Type Number | Press [ENTER]: ' typed < /dev/tty
 
 if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
 if [[ "$typed" == "" ]]; then inputphase; fi
