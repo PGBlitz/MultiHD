@@ -64,7 +64,7 @@ Type "ls -la $addpath"
 This command may help determine what the problem is!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER]: ' typed < /dev/tty
+read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
 addpoint; fi
 
 addpoint
