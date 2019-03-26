@@ -39,6 +39,8 @@ tee <<-EOF
 💪 Remove an HD/MountPoint ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+NOTE: Type a number selection in order to remove one of the HD/Mountpoints
+
 EOF
 num=0
 while read p; do
@@ -48,9 +50,6 @@ while read p; do
 done </var/plexguide/multihd.paths
 
 tee <<-EOF
-
-NOTE: Type a number selection in order to remove one of the following
-HD/Mountpoints!
 
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
