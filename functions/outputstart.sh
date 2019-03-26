@@ -5,7 +5,7 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-start () {
+multihdstart () {
 rolevars
 tee <<-EOF
 
@@ -23,10 +23,10 @@ the changes to take affect in (Union) MergerFS!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 read -rp '↘️  Input Selection | Press [ENTER]: ' typed < /dev/tty
-start
+multihdstart
 }
 
-start () {
+multihdstart () {
   case $typed in
         1 )
             addpoint ;;
@@ -37,7 +37,7 @@ start () {
         Z )
             exit ;;
         * )
-            start ;;
+            multihdstart ;;
       esac
-start
+multihdstart
 }
