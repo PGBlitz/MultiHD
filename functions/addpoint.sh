@@ -5,7 +5,7 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-startaddpoint () {
+addpoint () {
 rolevars
 tee <<-EOF
 
@@ -25,10 +25,10 @@ Quitting? Type >>> exit
 EOF
 read -rp '↘️  Input Selection | Press [ENTER]: ' $addpoint < /dev/tty
 
-if [[ "$addpoint" == "Exit" || "$addpoint" == "exit" || "$addpoint" == "EXIT" ]]; then startaddpoint; fi 
+if [[ "$addpoint" == "Exit" || "$addpoint" == "exit" || "$addpoint" == "EXIT" ]]; then startaddpoint; fi
 if [[ "$addpoint" == "" ]]; then startaddpoint; fi
 
-start
+multihdstart
 }
 
 startaddpoint () {
