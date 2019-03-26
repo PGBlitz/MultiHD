@@ -13,12 +13,12 @@ tee <<-EOF
 💪 Welcome to MultiHD ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+[1] Add    ~ HD or MountPoint
+[2] Remove ~ HD or MountPoint
+[Z] Exit
+
 NOTE: When finished making changes; PG Clone must redeploy in order for
 the changes to take affect in (Union) MergerFS!
-
-[1] HD or a MountPoint:  Add
-[2] HD or a MountPoint:  Remove
-[Z] Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
