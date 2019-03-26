@@ -46,7 +46,6 @@ while read p; do
   echo "[$num] $p"
   echo "[$num] $p" >> /var/plexguide/.tmp.removepointmenu
 done </var/plexguide/multihd.paths
-cat
 
 tee <<-EOF
 Quitting? Type >>> exit
