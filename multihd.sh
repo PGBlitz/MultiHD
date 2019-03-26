@@ -9,7 +9,7 @@ source /opt/multihd/functions/variables.sh
 source /opt/multihd/functions/outputstart.sh
 source /opt/multihd/functions/addpoint.sh
 ################################################################################
-rolevars
+#rolevars
 
 # multihdstart
-multihdstart
+#multihdstart
