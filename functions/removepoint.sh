@@ -58,83 +58,37 @@ read -rp '↘️  Type Number | Press [ENTER]: ' typed < /dev/tty
 if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
 if [[ "$typed" == "" ]]; then inputphase; fi
 
-if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then addpointcheck; fi
+if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then removepoint; fi
 
 inputphase
 }
 
-addpointcheck () {
+removepoint () {
 
-  # adds slashes if missing
-  if [[ $(echo $addpath | cut -c1) != "/" ]]; then addpath="/$addpath"; fi
-  if [[ $(echo $addpath | tail -c 2) != "/" ]]; then addpath="$addpath/"; fi
+cat /var/plexguide/.tmp.removepointmenu | grep "$typed" > /var/plexguide/.tmp.removepointmenu.select
+removestore=$(cat /var/plexguide/.tmp.removepointmenu.select | awk '{print $2}' )
 
-tee <<-EOF
+num=0
+while read p; do
+  if [[ "$removestore" != "$p" ]]; then echo "$p" >> /var/plexguide/.tmp.removebuild; fi
+done </var/plexguide/multihd.paths
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💪 Processing Path: $addpath
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-EOF
+rm -rf /var/plexguide/multihd.paths
+cp /var/plexguide/.tmp.removebuild /var/plexguide/multihd.paths
 
-checkcheck1=$(ls -la "$addpath" 2>&1)
-checkcheck2=$(echo $checkcheck1 | grep "cannot access")
-
-# Checks to Make Sure the Path Is Valid
-if [[ "$checkcheck2" != "" ]]; then
-tee <<-EOF
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💪 ERROR NOTICE ~ http://multihd.pgblitz.com
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PATH: $addpath
-
-NOTE: We are unable to verify that the following path above exists!
-Type "ls -la $addpath"
-
-Utilizing the above command may help determine what the problem is!
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
-addpoint; fi
-
-# Checks to Make Sure BoneHead doesn't store the same path twice
-checkcheck3=$(cat /var/plexguide/multihd.paths | grep "$addpath")
-if [[ "$checkcheck3" != "" ]]; then
-tee <<-EOF
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💪 ERROR NOTICE ~ http://multihd.pgblitz.com
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PATH: $addpath
-
-NOTE: This path ALREADY EXISTS in the MultiHD Setup! There is nothing else
-to do! EXITING!
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
-multihdstart
-fi
-
-# Congrats! The Path Exists and is now stored!
+# Congrats! The Path Should Now Be Removed
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 SUCCESS NOTICE ~ http://multihd.pgblitz.com
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-PATH: $addpath
+PATH: $removestore
 
-NOTE: The path exists! The path has now been saved to our
-MultiHD list!
+NOTE: The following path has been removed from the MultiHD List!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-
-echo $addpath >> /var/plexguide/multihd.paths
 read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
 
 multihdstart
