@@ -23,15 +23,15 @@ These are just examples!
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Input Selection | Press [ENTER]: ' $addpoint < /dev/tty
+read -rp '↘️  Input Selection | Press [ENTER]: ' addpath < /dev/tty
 
-if [[ "$addpoint" == "Exit" || "$addpoint" == "exit" || "$addpoint" == "EXIT" ]]; then multihdstart; fi
-if [[ "$addpoint" == "" ]]; then addpoint; fi
+if [[ "$addpath" == "Exit" || "$addpath" == "exit" || "$addpath" == "EXIT" ]]; then multihdstart; fi
+if [[ "$addpath" == "" ]]; then addpoint; fi
 
-multihdstart
+addpointcheck
 }
 
-addpoint () {
+addpointcheck () {
 
 
 
