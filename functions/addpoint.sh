@@ -95,8 +95,9 @@ tee <<-EOF
 
 PATH: $addpath
 
-NOTE: The following path does exist! We are storing the PATH for continued
-use! That's it unless more paths must be added!
+NOTE: The following path does exist! The path has now been saved to our
+MultiHD list!
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 
