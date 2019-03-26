@@ -33,6 +33,26 @@ multihdstartinput () {
             addpoint ;;
         2 )
             removepoint ;;
+        3 )
+tee <<-EOF
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💪 Established and Verified MountPoints ~ http://multihd.pgblitz.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EOF
+
+frontoutput=$(cat /var/plexguide/multihd.paths)
+if [[ "$frontoutput" == "" ]]; then echo "NOTHING HAS BEEN SETUP!"
+else cat /var/plexguide/multihd.paths; fi
+
+tee <<-EOF
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EOF
+read -rp '↘️  Acknowledge Info | Press [ENTER]: ' typed < /dev/tty
+
+            multihdstart ;;
         z )
             exit ;;
         Z )
