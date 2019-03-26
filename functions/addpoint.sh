@@ -58,7 +58,7 @@ tee <<-EOF
 
 PATH: $addpath
 
-NOTE: The following path above does not exist and unable to verify!
+NOTE: We are unable to verify that the following path above exists!
 Type "ls -la $addpath"
 
 This command may help determine what the problem is!
