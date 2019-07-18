@@ -5,9 +5,9 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-multihdstart () {
-rolevars
-tee <<-EOF
+multihdstart() {
+    rolevars
+    tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Welcome to MultiHD ~ http://multihd.pgblitz.com
@@ -23,18 +23,20 @@ the changes to take affect in (Union) MergerFS!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Input Selection | Press [ENTER]: ' typed < /dev/tty
-multihdstartinput
+    read -rp '↘️  Input Selection | Press [ENTER]: ' typed </dev/tty
+    multihdstartinput
 }
 
-multihdstartinput () {
-  case $typed in
-        1 )
-            addpoint ;;
-        2 )
-            removepoint ;;
-        3 )
-tee <<-EOF
+multihdstartinput() {
+    case $typed in
+    1)
+        addpoint
+        ;;
+    2)
+        removepoint
+        ;;
+    3)
+        tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Established and Verified MountPoints ~ http://multihd.pgblitz.com
@@ -42,23 +44,28 @@ tee <<-EOF
 
 EOF
 
-frontoutput=$(cat /var/plexguide/multihd.paths)
-if [[ "$frontoutput" == "" ]]; then echo "NOTHING HAS BEEN SETUP!"
-else cat /var/plexguide/multihd.paths; fi
+        frontoutput=$(cat /var/plexguide/multihd.paths)
+        if [[ "$frontoutput" == "" ]]; then
+            echo "NOTHING HAS BEEN SETUP!"
+        else cat /var/plexguide/multihd.paths; fi
 
-tee <<-EOF
+        tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
+        read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
 
-            multihdstart ;;
-        z )
-            exit ;;
-        Z )
-            exit ;;
-        * )
-            multihdstart ;;
-      esac
-multihdstart
+        multihdstart
+        ;;
+    z)
+        exit
+        ;;
+    Z)
+        exit
+        ;;
+    *)
+        multihdstart
+        ;;
+    esac
+    multihdstart
 }

@@ -5,21 +5,21 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-rolevars () {
+rolevars() {
   mkdir -p /var/plexguide/
 
-  variable () {
+  variable() {
     file="$1"
-    if [ ! -e "$file" ]; then echo "$2" > $1; fi
+    if [ ! -e "$file" ]; then echo "$2" >$1; fi
   }
 
-  variablet () {
+  variablet() {
     file="$1"
     if [ ! -e "$file" ]; then touch "$1"; fi
   }
 
   # set variables if they do not exist
-  variable /var/plexguide/vfs_rcsl "5"
+  variable /var/plexguide/vfs_rcsl "2048M"
   vfs_rcsl=$(cat /var/plexguide/vfs_rcsl)
 
   # touch paths only if not existant

@@ -5,13 +5,13 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-removepoint () {
-rolevars
+removepoint() {
+  rolevars
 
-# Nothing Exist; kick user back to main menu
-frontoutput=$(cat /var/plexguide/multihd.paths)
-if [[ "$frontoutput" == "" ]]; then
-tee <<-EOF
+  # Nothing Exist; kick user back to main menu
+  frontoutput=$(cat /var/plexguide/multihd.paths)
+  if [[ "$frontoutput" == "" ]]; then
+    tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Remove an HD or MountPoint ~ http://multihd.pgblitz.com
@@ -22,18 +22,19 @@ that does not exist! EXITING!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
-multihdstart; fi
+    read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
+    multihdstart
+  fi
 
-inputphase
+  inputphase
 }
 
-inputphase () {
+inputphase() {
 
-rm -rf /var/plexguide/.tmp.removepointmenu 1>/dev/null 2>&1
+  rm -rf /var/plexguide/.tmp.removepointmenu 1>/dev/null 2>&1
 
-# Starting Process
-tee <<-EOF
+  # Starting Process
+  tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Remove an HD/MountPoint ~ http://multihd.pgblitz.com
@@ -41,44 +42,44 @@ tee <<-EOF
 NOTE: Type a number selection in order to remove one of the HD/Mountpoints
 
 EOF
-num=0
-while read p; do
-  ((num++))
-  echo "[$num] $p"
-  echo "[$num] $p" >> /var/plexguide/.tmp.removepointmenu
-done </var/plexguide/multihd.paths
+  num=0
+  while read p; do
+    ((num++))
+    echo "[$num] $p"
+    echo "[$num] $p" >>/var/plexguide/.tmp.removepointmenu
+  done </var/plexguide/multihd.paths
 
-tee <<-EOF
+  tee <<-EOF
 
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Type Number | Press [ENTER]: ' typed < /dev/tty
+  read -rp '↘️  Type Number | Press [ENTER]: ' typed </dev/tty
 
-if [[ "$typed" == "Exit" || "$typed" == "exit" || "$typed" == "EXIT" ]]; then multihdstart; fi
-if [[ "$typed" == "" ]]; then inputphase; fi
+  if [[ "$typed" == "exit" || "$typed" == "Exit" || "$typed" == "EXIT" || "$typed" == "z" || "$typed" == "Z" ]]; then multihdstart; fi
+  if [[ "$typed" == "" ]]; then inputphase; fi
 
-if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then removepointfinal; fi
+  if [[ "$typed" -ge "1" && "$typed" -le "$num" ]]; then removepointfinal; fi
 
-inputphase
+  inputphase
 }
 
-removepointfinal () {
+removepointfinal() {
 
-cat /var/plexguide/.tmp.removepointmenu | grep "$typed" > /var/plexguide/.tmp.removepointmenu.select
-removestore=$(cat /var/plexguide/.tmp.removepointmenu.select | awk '{print $2}' )
+  cat /var/plexguide/.tmp.removepointmenu | grep "$typed" >/var/plexguide/.tmp.removepointmenu.select
+  removestore=$(cat /var/plexguide/.tmp.removepointmenu.select | awk '{print $2}')
 
-rm -rf /var/plexguide/.tmp.removebuild 1>/dev/null 2>&1
-num=0
-while read p; do
-  if [[ "$removestore" != "$p" ]]; then echo "$p" >> /var/plexguide/.tmp.removebuild; fi
-done </var/plexguide/multihd.paths
+  rm -rf /var/plexguide/.tmp.removebuild 1>/dev/null 2>&1
+  num=0
+  while read p; do
+    if [[ "$removestore" != "$p" ]]; then echo "$p" >>/var/plexguide/.tmp.removebuild; fi
+  done </var/plexguide/multihd.paths
 
-rm -rf /var/plexguide/multihd.paths
-cp /var/plexguide/.tmp.removebuild /var/plexguide/multihd.paths
+  rm -rf /var/plexguide/multihd.paths
+  cp /var/plexguide/.tmp.removebuild /var/plexguide/multihd.paths
 
-# Congrats! The Path Should Now Be Removed
-tee <<-EOF
+  # Congrats! The Path Should Now Be Removed
+  tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 SUCCESS NOTICE ~ http://multihd.pgblitz.com
@@ -93,7 +94,7 @@ through PG Clone!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
+  read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
 
-multihdstart
+  multihdstart
 }

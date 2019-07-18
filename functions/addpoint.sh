@@ -5,9 +5,9 @@
 # URL:        https://pgblitz.com - http://github.pgblitz.com
 # GNU:        General Public License v3.0
 ################################################################################
-addpoint () {
-rolevars
-tee <<-EOF
+addpoint() {
+  rolevars
+  tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Add HD or MountPoint ~ http://multihd.pgblitz.com
@@ -25,36 +25,36 @@ NOTE2: Formatting Examples
 /timekills.org/storage/media
 /secondhd/user/pgblitz/media
 
-Quitting? Type >>> exit
+Quitting? Type >>> q or exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Input Selection | Press [ENTER]: ' addpath < /dev/tty
+  read -rp '↘️  Input Selection | Press [ENTER]: ' addpath </dev/tty
 
-if [[ "$addpath" == "Exit" || "$addpath" == "exit" || "$addpath" == "EXIT" ]]; then multihdstart; fi
-if [[ "$addpath" == "" ]]; then addpoint; fi
+  if [[ "$addpath" == "exit" || "$addpath" == "Exit" || "$addpath" == "EXIT" || "$addpath" == "z" || "$addpath" == "Z" ]]; then multihdstart; fi
+  if [[ "$addpath" == "" ]]; then addpoint; fi
 
-addpointcheck
+  addpointcheck
 }
 
-addpointcheck () {
+addpointcheck() {
 
   # adds slashes if missing
   if [[ $(echo $addpath | cut -c1) != "/" ]]; then addpath="/$addpath"; fi
   if [[ $(echo $addpath | tail -c 2) == "/" ]]; then addpath="${addpath::-1}"; fi
 
-tee <<-EOF
+  tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Processing Path: $addpath
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 
-checkcheck1=$(ls -la "$addpath" 2>&1)
-checkcheck2=$(echo $checkcheck1 | grep "cannot access")
+  checkcheck1=$(ls -la "$addpath" 2>&1)
+  checkcheck2=$(echo $checkcheck1 | grep "cannot access")
 
-# Checks to Make Sure the Path Is Valid
-if [[ "$checkcheck2" != "" ]]; then
-tee <<-EOF
+  # Checks to Make Sure the Path Is Valid
+  if [[ "$checkcheck2" != "" ]]; then
+    tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 ERROR NOTICE ~ http://multihd.pgblitz.com
@@ -69,13 +69,14 @@ Utilizing the above command may help determine what the problem is!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
-addpoint; fi
+    read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
+    addpoint
+  fi
 
-# Checks to Make Sure BoneHead doesn't store the same path twice
-checkcheck3=$(cat /var/plexguide/multihd.paths | grep "$addpath")
-if [[ "$checkcheck3" != "" ]]; then
-tee <<-EOF
+  # Checks to Make Sure BoneHead doesn't store the same path twice
+  checkcheck3=$(cat /var/plexguide/multihd.paths | grep "$addpath")
+  if [[ "$checkcheck3" != "" ]]; then
+    tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 ERROR NOTICE ~ http://multihd.pgblitz.com
@@ -88,12 +89,12 @@ to do! EXITING!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
-multihdstart
-fi
+    read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
+    multihdstart
+  fi
 
-# Congrats! The Path Exists and is now stored!
-tee <<-EOF
+  # Congrats! The Path Exists and is now stored!
+  tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 SUCCESS NOTICE ~ http://multihd.pgblitz.com
@@ -109,8 +110,8 @@ through PG Clone!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 
-echo $addpath >> /var/plexguide/multihd.paths
-read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed < /dev/tty
+  echo $addpath >>/var/plexguide/multihd.paths
+  read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
 
-multihdstart
+  multihdstart
 }
