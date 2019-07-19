@@ -21,8 +21,6 @@ rolevars() {
   # set variables if they do not exist
   variable /var/plexguide/vfs_rcsl "2048M"
   vfs_rcsl=$(cat /var/plexguide/vfs_rcsl)
-
-  # touch paths only if not existant
-  variablet /var/plexguide/multihd.paths
+  variable /var/plexguide/multihd.paths ""
 
 }
