@@ -21,6 +21,7 @@ NOTE: No HD's or MountPoints have been stored! Unable to remove something
 that does not exist! EXITING!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
     read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
     multihdstart
@@ -53,6 +54,7 @@ EOF
 
 Quitting? Type >>> exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
   read -rp '↘️  Type Number | Press [ENTER]: ' typed </dev/tty
 
@@ -93,6 +95,7 @@ NOTE2: To take full affect PG Move/PG Blitz must be deployed/redeployed
 through PG Clone!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
   read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
 

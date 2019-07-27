@@ -27,6 +27,7 @@ NOTE2: Formatting Examples
 
 Quitting? Type >>> q or exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
   read -rp '↘️  Input Selection | Press [ENTER]: ' addpath </dev/tty
 
@@ -47,6 +48,7 @@ addpointcheck() {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 💪 Processing Path: $addpath
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
 
   checkcheck1=$(ls -la "$addpath" 2>&1)
@@ -68,6 +70,7 @@ Type "ls -la $addpath"
 Utilizing the above command may help determine what the problem is!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
     read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
     addpoint
@@ -88,6 +91,7 @@ NOTE: This path ALREADY EXISTS in the MultiHD Setup! There is nothing else
 to do! EXITING!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
     read -rp '↘️  Acknowledge Info | Press [ENTER] ' typed </dev/tty
     multihdstart
@@ -108,6 +112,7 @@ NOTE2: To take full affect PG Move/PG Blitz must be deployed/redeployed
 through PG Clone!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
 
   echo $addpath >>/var/plexguide/multihd.paths
